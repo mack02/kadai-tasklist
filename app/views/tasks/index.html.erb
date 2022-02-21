@@ -11,17 +11,6 @@
 
 <% else %>
 
-<div class="row">
-    <div class="col-sm-6">
-        <h2 class="text-center">Welcome to Tasklist!!</h2>
-        <p><%= link_to "signup", signup_path %></p>
-    </div>
-    
-    <div class="col-sm-6">
-        <h2>Welcome back Tasklist</h2>
-        <p><%= link_to "login", login_path %></p>
-        
-    </div>
-</div>
+redirect_to: login_path
 
 <% end %>
