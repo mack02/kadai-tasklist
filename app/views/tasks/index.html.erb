@@ -1,9 +1,27 @@
+<% if logged_in? %>
+
 <h1>タスク一覧</h1>
-
+<p><%= link_to "タスクの追加", new_task_path %></p>
 <ul>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.id, task %> : <%= task.status %> &gt; <%= task.content %></li>
-  <% end %>
+    <% @tasks.each do |task| %>
+    <li><%= task.status %>：<%= task.content %>:<%= link_to task.id, task %> </li>
+    <% end %>
 </ul>
+<p><%= link_to "logout", logout_path %></p>
 
-<%= link_to '新規タスクの投稿', new_task_path %>
+<% else %>
+
+<div class="row">
+    <div class="col-sm-6">
+        <h2 class="text-center">Welcome to Tasklist!!</h2>
+        <p><%= link_to "signup", signup_path %></p>
+    </div>
+    
+    <div class="col-sm-6">
+        <h2>Welcome back Tasklist</h2>
+        <p><%= link_to "login", login_path %></p>
+        
+    </div>
+</div>
+
+<% end %>
